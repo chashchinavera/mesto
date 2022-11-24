@@ -1,0 +1,28 @@
+.element__like {
+    background-image: url(../../../images/element__like.svg);
+    background-size: cover;
+    background-color: transparent;
+    width: 22px;
+    height: 19px;
+    margin: 5px 1px;
+    cursor: pointer;
+    align-self: center;
+    border: none;
+}
+
+.element__like:hover {
+    opacity: 0.5;
+}
+
+.element__like:active {
+    opacity: 1;
+    background-image: url(../../../images/element__like_active.svg);
+}
+
+@media screen and (max-width:768px) {
+    .element__like {
+        width: 25px;
+        height: 23px;
+        margin: 3px 2px;
+    }
+}
