@@ -1,16 +1,16 @@
 .profile__status {
-margin: 0;
-padding: 0;
-min-width: 500px;
-font-family: 'Inter', Arial, sans-serif;
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 22px;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
-color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    min-width: 500px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #FFFFFF;
 }
 
 @media screen and (max-width:768px) {
