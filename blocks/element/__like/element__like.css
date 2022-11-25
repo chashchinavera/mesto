@@ -14,11 +14,6 @@
     opacity: 0.5;
 }
 
-.element__like:active {
-    opacity: 1;
-    background-image: url(../../../images/element__like_active.svg);
-}
-
 @media screen and (max-width:768px) {
     .element__like {
         width: 22px;
