@@ -4,7 +4,7 @@
     background-color: transparent;
     width: 22px;
     height: 19px;
-    margin: 5px 1px;
+    margin: 5px 0px;
     cursor: pointer;
     align-self: center;
     border: none;
@@ -12,6 +12,7 @@
 
 .element__like:hover {
     opacity: 0.5;
+    transition: 1s ease-in;
 }
 
 @media screen and (max-width:768px) {
