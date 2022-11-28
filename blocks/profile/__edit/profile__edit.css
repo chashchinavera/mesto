@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .profile__edit {
     margin: 16px 0 0 18px;
     background-image: url(../../../images/profile__edit.svg);
@@ -23,4 +24,31 @@
         background-size: 7.5px;
         margin: 8px 0 0 10px;
     }
+=======
+.profile__edit {
+    margin: 16px 0 0 18px;
+    background-image: url(../../../images/profile__edit.svg);
+    background-size: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #FFF;
+    cursor: pointer;
+}
+
+.profile__edit:hover {
+    opacity: 0.6;
+    transition: 1s ease-in;
+}
+
+@media screen and (max-width:768px) {
+    .profile__edit {
+        width: 18px;
+        height: 18px;
+        background-size: 7.5px;
+        margin: 8px 0 0 10px;
+    }
+>>>>>>> 7318833f170e2f211534d415f8f86080b3515677
 }

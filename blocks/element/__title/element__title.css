@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .element__title {
     margin: 0;
     padding: 0;
@@ -11,4 +12,19 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+=======
+.element__title {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000;
+    max-width: 195px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+>>>>>>> 7318833f170e2f211534d415f8f86080b3515677
 }

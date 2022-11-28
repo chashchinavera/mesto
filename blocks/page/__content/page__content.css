@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .page__content {
     margin: 30px 0 67px;
     display: flex;
@@ -9,4 +10,16 @@
     .page__content {
         margin: 42px 0 50px;
     }
+=======
+.page__content {
+    margin: 30px 0 67px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width:768px) {
+    .page__content {
+        margin: 42px 0 50px;
+    }
+>>>>>>> 7318833f170e2f211534d415f8f86080b3515677
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .elements {
     width: 100%;
     box-sizing: border-box;
@@ -22,4 +23,28 @@
         grid-template-rows: repeat(6, 361px);
         gap: 20px;
     }
+=======
+.elements {
+    display: grid;
+    grid-template-columns: repeat(3, 282px);
+    grid-template-rows: repeat(2, 361px);
+    gap: 20px 17px;
+    justify-content: center;
+}
+
+@media screen and (max-width:1279px) {
+    .elements {
+        grid-template-columns: repeat(2, 282px);
+        grid-template-rows: repeat(3, 361px);
+        gap: 17px 20px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .elements {
+        grid-template-columns: 282px;
+        grid-template-rows: repeat(6, 361px);
+        gap: 20px;
+    }
+>>>>>>> 7318833f170e2f211534d415f8f86080b3515677
 }
