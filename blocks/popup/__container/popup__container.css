@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .popup__container {
     position: relative;
     display: flex;
@@ -15,22 +14,4 @@
         width: 282px;
         padding: 25px 22px;
     }
-=======
-.popup__container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: #FFF;
-    width: 430px;
-    border-radius: 10px;
-    box-sizing: border-box;
-    padding: 35px 36px 36px;
-}
-
-@media screen and (max-width:768px) {
-    .popup__container {
-        width: 282px;
-        padding: 25px 0 25px 22px;
-    }
->>>>>>> 7318833f170e2f211534d415f8f86080b3515677
 }

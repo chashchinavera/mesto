@@ -1,16 +1,7 @@
-<<<<<<< HEAD
 .element {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #FFF;
     border-radius: 10px;
-=======
-.element {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #FFF;
-    border-radius: 10px;
->>>>>>> 7318833f170e2f211534d415f8f86080b3515677
 }

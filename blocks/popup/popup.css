@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .popup {
     position: fixed;
     top: 0;
@@ -9,16 +8,4 @@
     display: none;
     justify-content: center;
     align-items: center;
-=======
-.popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none;
-    justify-content: center;
-    align-items: center;
->>>>>>> 7318833f170e2f211534d415f8f86080b3515677
 }

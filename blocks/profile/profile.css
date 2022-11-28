@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .profile {
     display: flex;
     flex-direction: row;
@@ -9,16 +8,4 @@
     .profile {
         flex-direction: column;
     }
-=======
-.profile {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-@media screen and (max-width:768px) {
-    .profile {
-        flex-direction: column;
-    }
->>>>>>> 7318833f170e2f211534d415f8f86080b3515677
 }
