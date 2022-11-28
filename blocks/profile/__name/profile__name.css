@@ -10,10 +10,16 @@
     color: #FFFFFF;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 280px;
+    max-width: 330px;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:1085px) {
+    .profile__name {
+        max-width: 265px;
+    }
+}
+
+@media screen and (max-width:840px) {
     .profile__name {
         font-size: 27px;
         line-height: 33px;

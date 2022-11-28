@@ -10,7 +10,7 @@
     background-color: #000;
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1050px) {
     .page {
         padding: 0 100px;
     }

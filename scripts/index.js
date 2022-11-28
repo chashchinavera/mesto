@@ -1,11 +1,11 @@
 //Elements
 const popupElement = document.querySelector('.popup');
 const profileElement = document.querySelector('.profile');
+const formSubmit = document.querySelector('form');
 
 //Buttons
 const popupOpenButtonElement = profileElement.querySelector('.profile__edit');
 const popupCloseButtonElement = popupElement.querySelector('.popup__close');
-const popupSubmitButtonElement = popupElement.querySelector('.popup__submit');
 
 const profileName = profileElement.querySelector('.profile__name');
 const profileStatus = profileElement.querySelector('.profile__status');
@@ -33,4 +33,4 @@ const submitPopup = function (evt) {
 //AddEventListener
 popupOpenButtonElement.addEventListener('click', openPopup);
 popupCloseButtonElement.addEventListener('click', closePopup);
-popupSubmitButtonElement.addEventListener('submit', submitPopup);
+formSubmit.addEventListener('submit', submitPopup);
