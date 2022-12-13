@@ -1,0 +1,13 @@
+.element__info {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    min-width: 246px;
+    margin: 25px 20px 31px 21px;
+}
+
+@media screen and (max-width:768px) {
+    .element__info {
+        margin: 24px 15px 33px 21px;
+    }
+}
