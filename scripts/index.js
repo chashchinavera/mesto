@@ -1,10 +1,10 @@
-const popupEditElement = document.querySelector('.popup__edit');
-const popupAddElement = document.querySelector('.popup__add');
-const popupImageElement = document.querySelector('.popup__image');
+const popupEditElement = document.querySelector('#edit');
+const popupAddElement = document.querySelector('#add');
+const popupImageElement = document.querySelector('#image');
 const popupElement = document.querySelector('.popup')
 const profileElement = document.querySelector('.profile');
-const formSubmit = document.querySelector('.form__submit');
-const formCreate = document.querySelector('.form__create');
+const formSubmit = document.querySelector('#submit');
+const formCreate = document.querySelector('#create');
 
 const popupEditOpenButtonElement = profileElement.querySelector('.profile__edit');
 const popupEditCloseButtonElement = popupEditElement.querySelector('.popup__close');
@@ -97,7 +97,7 @@ function createElement(item) {
     const popupImageOpenButtonElement = card.querySelector('.element__image');
 
     const openImagePopup = function () {
-        const popupImage = document.querySelector('.popup__image_pic');
+        const popupImage = document.querySelector('.popup__image');
         popupImage.src = item.link;
         popupImage.alt = item.name;
         const popupCaption = document.querySelector('.popup__caption');

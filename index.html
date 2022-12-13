@@ -39,11 +39,11 @@
         </article>
     </template>
     <div class="popups">
-        <div class="popup popup__edit">
+        <div class="popup" id="edit">
             <div class="popup__container">
                 <button type="button" class="popup__close" aria-label="закрыть окно редактирования"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form class="form form__submit" name="content">
+                <form class="form" id="submit" name="content">
                     <input type="text" name="name" class="popup__input popup__input_info_name" placeholder="Имя"
                         required>
                     <input type="text" name="status" class="popup__input popup__input_info_status" placeholder="О себе"
@@ -52,11 +52,11 @@
                 </form>
             </div>
         </div>
-        <div class="popup popup__add">
+        <div class="popup" id="add">
             <div class="popup__container">
                 <button type="button" class="popup__close" aria-label="закрыть окно добавления"></button>
                 <h2 class="popup__title">Новое место</h2>
-                <form class="form form__create" name="content">
+                <form class="form" id="create" name="content">
                     <input type="text" name="place" class="popup__input popup__input_info_place" placeholder="Название"
                         required>
                     <input type="text" name="image" class="popup__input popup__input_info_image"
@@ -66,10 +66,10 @@
             </div>
         </div>
     </div>
-    <div class="popup popup__image">
+    <div class="popup" id="image">
         <div class="popup__box">
             <button type="button" class="popup__close" aria-label="закрыть окно просмотра изображения"></button>
-            <img class="popup__image_pic">
+            <img class="popup__image">
             <p class="popup__caption"></p>
         </div>
     </div>
