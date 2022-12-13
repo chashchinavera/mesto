@@ -10,6 +10,5 @@
     align-items: center;
     visibility: hidden;
     opacity: 0;
-    transition: visibility .3s, opacity .3s ease-in;
-    transition-delay: .3s;
+    transition: visibility 1s, opacity 1s ease-in;
 }
