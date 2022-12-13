@@ -97,7 +97,7 @@ function createElement(item) {
     const popupImageOpenButtonElement = card.querySelector('.element__image');
 
     const openImagePopup = function () {
-        const popupImage = document.querySelector('.popup__image');
+        const popupImage = document.querySelector('#image');
         popupImage.src = item.link;
         popupImage.alt = item.name;
         const popupCaption = document.querySelector('.popup__caption');
