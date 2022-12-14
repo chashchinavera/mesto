@@ -1,7 +1,6 @@
-const popupEditElement = document.querySelector('#edit');
-const popupAddElement = document.querySelector('#add');
-const popupImageElement = document.querySelector('#image');
-const popupElement = document.querySelector('.popup')
+const popupEditElement = document.querySelector('.popup_type_profile');
+const popupAddElement = document.querySelector('.popup_type_card-add');
+const popupImageElement = document.querySelector('.popup_type_picture');
 const profileElement = document.querySelector('.profile');
 const formSubmit = document.querySelector('#submit');
 const formCreate = document.querySelector('#create');
@@ -14,58 +13,38 @@ const popupImageCloseButtonElement = popupImageElement.querySelector('.popup__cl
 
 const profileName = profileElement.querySelector('.profile__name');
 const profileStatus = profileElement.querySelector('.profile__status');
+
 const popupInputInfoName = popupEditElement.querySelector('.popup__input_info_name');
 const popupInputInfoStatus = popupEditElement.querySelector('.popup__input_info_status');
 
 const popupInputInfoPlace = popupAddElement.querySelector('.popup__input_info_place');
 const popupInputInfoImage = popupAddElement.querySelector('.popup__input_info_image');
 
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
 
-
-//openAddPopup
-const openAddPopup = function () {
-    popupAddElement.classList.add('popup_opened');
+//openPopup
+function openModalWindow(modalWindow) {
+    modalWindow.classList.add('popup_opened');
 }
 
-popupAddOpenButtonElement.addEventListener('click', openAddPopup);
+popupAddOpenButtonElement.addEventListener('click', () => openModalWindow(popupAddElement));
+
+
+//openEditPopup
+function openEditPopup() {
+    popupInputInfoName.value = profileName.textContent;
+    popupInputInfoStatus.value = profileStatus.textContent;
+    openModalWindow(popupEditElement);
+}
+popupEditOpenButtonElement.addEventListener('click', openEditPopup);
 
 
 //closePopup
-const closePopup = function () {
-    popupAddElement.classList.remove('popup_opened');
-    popupEditElement.classList.remove('popup_opened');
-    popupImageElement.classList.remove('popup_opened');
+function closeModalWindow(modalWindow) {
+    modalWindow.classList.remove('popup_opened');
 }
 
-popupEditCloseButtonElement.addEventListener('click', closePopup);
-popupAddCloseButtonElement.addEventListener('click', closePopup);
-popupImageCloseButtonElement.addEventListener('click', closePopup);
+popupEditCloseButtonElement.addEventListener('click', () => closeModalWindow(popupEditElement));
+popupAddCloseButtonElement.addEventListener('click', () => closeModalWindow(popupAddElement));
 
 
 //cards
@@ -89,26 +68,24 @@ function createElement(item) {
     //DeleteButton
     const deleteButton = card.querySelector('.element__delete');
     deleteButton.addEventListener('click', function () {
-        const deleteElement = deleteButton.closest('.element');
-        deleteElement.remove();
+        const deleteElement = deleteButton.closest('.element').remove();
     });
 
     //ImagePopup
     const popupImageOpenButtonElement = card.querySelector('.element__image');
 
     const openImagePopup = function () {
-        const popupImage = document.querySelector('.popup__image');
+        const popupImage = popupImageElement.querySelector('.popup__image');
         popupImage.src = item.link;
         popupImage.alt = item.name;
-        const popupCaption = document.querySelector('.popup__caption');
+        const popupCaption = popupImageElement.querySelector('.popup__caption');
         popupCaption.textContent = item.name;
 
-        popupImageElement.classList.add('popup_opened');
+        openModalWindow(popupImageElement);
     }
 
     popupImageOpenButtonElement.addEventListener('click', openImagePopup);
-
-
+    popupImageCloseButtonElement.addEventListener('click', () => closeModalWindow(popupImageElement));
     return card;
 };
 
@@ -118,31 +95,19 @@ initialCards.forEach(function (item) {
 });
 
 
-//createPopup
-const createCard = function (item) {
+//addPopup
+const addCard = function (item) {
     initialCardsElement.prepend(createElement(item));
 }
 
-const createPopup = function (evt) {
+const addPopup = function (evt) {
     evt.preventDefault();
-    createCard({ name: popupInputInfoPlace.value, link: popupInputInfoImage.value })
-    popupInputInfoPlace.value = '';
-    popupInputInfoImage.value = '';
-    closePopup();
+    addCard({ name: popupInputInfoPlace.value, link: popupInputInfoImage.value });
+    formCreate.reset();
+    closeModalWindow(popupAddElement);
 }
 
-formCreate.addEventListener('submit', createPopup);
-
-
-//openEditPopup
-const openEditPopup = function () {
-    popupInputInfoName.value = profileName.textContent;
-    popupInputInfoStatus.value = profileStatus.textContent;
-    popupEditElement.classList.add('popup_opened');
-}
-
-popupEditOpenButtonElement.addEventListener('click', openEditPopup);
-
+formCreate.addEventListener('submit', addPopup);
 
 
 //submitPopup
@@ -150,10 +115,7 @@ const submitPopup = function (evt) {
     evt.preventDefault();
     profileName.textContent = popupInputInfoName.value;
     profileStatus.textContent = popupInputInfoStatus.value;
-    closePopup();
+    closeModalWindow(popupEditElement);
 }
 
 formSubmit.addEventListener('submit', submitPopup);
-
-
-

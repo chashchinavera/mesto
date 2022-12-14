@@ -10,5 +10,9 @@
     align-items: center;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 1s, opacity 1s ease-in;
+    transition: opacity 1s ease-in;
+}
+
+.popup#image {
+    background-color: rgba(0, 0, 0, 0.9);
 }
