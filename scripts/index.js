@@ -85,7 +85,7 @@ function createElement(item) {
     }
 
     popupImageOpenButtonElement.addEventListener('click', openImagePopup);
-    popupImageCloseButtonElement.addEventListener('click', () => closeModalWindow(popupImageElement));
+    
     return card;
 };
 
@@ -93,6 +93,9 @@ initialCards.forEach(function (item) {
     const a = createElement(item);
     initialCardsElement.append(a);
 });
+
+//openImagePopup
+popupImageCloseButtonElement.addEventListener('click', () => closeModalWindow(popupImageElement));
 
 
 //addPopup
