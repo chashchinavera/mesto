@@ -60,6 +60,6 @@ const config = {
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
     inactiveButtonClass: 'popup__button_invalid',
-    inputErrorClass: 'popup__input_error',
-    errorClass: 'popup__input_error_visible'
+    inputErrorClass: 'popup__error',
+    errorClass: 'popup__error_visible'
 }
