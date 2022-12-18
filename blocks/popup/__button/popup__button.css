@@ -12,8 +12,8 @@
     font-size: 18px;
     line-height: 22px;
     text-align: center;
-    color: #FFFFFF;
-    border: none;
+    color: #FFF;
+    border: 1px solid #fff;
 }
 
 .popup__button:hover {

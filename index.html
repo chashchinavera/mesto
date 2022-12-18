@@ -40,12 +40,16 @@
     </template>
     <div class="popup  popup_type_profile">
         <div class="popup__container">
-            <button type="button" class="popup__close" aria-label="закрыть окно редактирования"></button>
+            <button type="button" class="popup__close" aria-label="закрыть окно редактирования">
+            </button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="form" id="submit" name="content">
-                <input type="text" name="name" class="popup__input popup__input_info_name" placeholder="Имя" required>
-                <input type="text" name="status" class="popup__input popup__input_info_status" placeholder="О себе"
-                    required>
+            <form class="form" id="submit" name="content" novalidate>
+                <input type="text" id="info" name="name" class="popup__input popup__input_info_name" placeholder="Имя"
+                    required minlength="2" maxlength="40">
+                <span class="popup__input_error" id="info-error"></span>
+                <input type="text" id="status" name="status" class="popup__input popup__input_info_status"
+                    placeholder="О себе" required minlength="2" maxlength="200">
+                <span class="popup__input_error" id="status-error"></span>
                 <button type="submit" class="popup__button popup__submit">Сохранить</button>
             </form>
         </div>
@@ -54,12 +58,14 @@
         <div class="popup__container">
             <button type="button" class="popup__close" aria-label="закрыть окно добавления"></button>
             <h2 class="popup__title">Новое место</h2>
-            <form class="form" id="create" name="content">
-                <input type="text" name="place" class="popup__input popup__input_info_place" placeholder="Название"
-                    required>
-                <input type="text" name="image" class="popup__input popup__input_info_image"
+            <form class="form" id="create" name="content" novalidate>
+                <input type="text" id="place" name="place" class="popup__input popup__input_info_place"
+                    placeholder="Название" required minlength="2" maxlength="40">
+                <span class="popup__input_error" id="place-error"></span>
+                <input type="url" id="image" name="image" class="popup__input popup__input_info_image"
                     placeholder="Ссылка на картинку" required>
-                <button type="submit" class="popup__button popup__create">Создать</button>
+                <span class="popup__input_error" id="image-error"></span>
+                <button type="submit" disabled class="popup__button popup__create popup__button_invalid">Создать</button>
             </form>
         </div>
     </div>
@@ -72,6 +78,7 @@
     </div>
     <script src="scripts/cards.js"></script>
     <script src="scripts/index.js"></script>
+    <script src="scripts/validate.js"></script>
 </body>
 
 </html>
