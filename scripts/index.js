@@ -1,4 +1,4 @@
-const popup = document.querySelector('.popup');
+const popups = document.querySelectorAll('.popup');
 const popupEditElement = document.querySelector('.popup_type_profile');
 const popupAddElement = document.querySelector('.popup_type_card-add');
 const popupImageElement = document.querySelector('.popup_type_picture');
@@ -6,6 +6,11 @@ const popupContainer = document.querySelector('.popup__container');
 const profileElement = document.querySelector('.profile');
 const formSubmit = document.querySelector('#submit');
 const formCreate = document.querySelector('#create');
+const addButton = document.querySelector('#add');
+
+const cardTemplate = document.querySelector('#element').content.querySelector('.element');
+const popupImage = popupImageElement.querySelector('.popup__image');
+const popupCaption = popupImageElement.querySelector('.popup__caption');
 
 const popupEditOpenButtonElement = profileElement.querySelector('.profile__edit');
 const popupEditCloseButtonElement = popupEditElement.querySelector('.popup__close');
@@ -25,11 +30,15 @@ const popupInputInfoImage = popupAddElement.querySelector('.popup__input_info_im
 
 //openPopup
 function openModalWindow(modalWindow) {
+    document.addEventListener('keydown', closeByEscape);
     modalWindow.classList.add('popup_opened');
 }
 
-popupAddOpenButtonElement.addEventListener('click', () => openModalWindow(popupAddElement));
-
+popupAddOpenButtonElement.addEventListener('click', () => {
+    addButton.classList.add('popup__button_invalid');
+    addButton.disabled = 'disabled';
+    openModalWindow(popupAddElement)
+})
 
 //openEditPopup
 function openEditPopup() {
@@ -39,39 +48,35 @@ function openEditPopup() {
 }
 popupEditOpenButtonElement.addEventListener('click', openEditPopup);
 
-
 //closePopup
 function closeModalWindow(modalWindow) {
+    document.removeEventListener('keydown', closeByEscape);
     modalWindow.classList.remove('popup_opened');
 }
 
-popupEditCloseButtonElement.addEventListener('click', () => closeModalWindow(popupEditElement));
-popupAddCloseButtonElement.addEventListener('click', () => closeModalWindow(popupAddElement));
-
+popups.forEach((popup) => {
+    popup.addEventListener('mousedown', (evt) => {
+        if (evt.target.classList.contains('popup_opened')) {
+            closeModalWindow(popup)
+        }
+        if (evt.target.classList.contains('popup__close')) {
+            closeModalWindow(popup)
+        }
+    })
+})
 
 //closePopupByEscape
-document.addEventListener('keydown', function (evt) {
+function closeByEscape(evt) {
     if (evt.key === 'Escape') {
-        const Modal = document.querySelector('.popup_opened');
-        closeModalWindow(Modal);
-    }
-});
-
-
-//closePopupOverlay
- function closePopupOverlay(evt) {
-    if (!evt.target.closest('.popup__container')) {
-        closeModalWindow(evt.target.closest('.popup_opened'))
+        const modalWindowOpen = document.querySelector('.popup_opened');
+        closeModalWindow(modalWindowOpen);
     }
 }
-document.addEventListener('click', closePopupOverlay);
-
 
 //cards
 const initialCardsElement = document.querySelector('.elements');
 
 function createElement(item) {
-    const cardTemplate = document.querySelector('#element').content.querySelector('.element');
     const card = cardTemplate.cloneNode(true);
     const cardTitle = card.querySelector('.element__title');
     cardTitle.textContent = item.name;
@@ -95,10 +100,8 @@ function createElement(item) {
     const popupImageOpenButtonElement = card.querySelector('.element__image');
 
     const openImagePopup = function () {
-        const popupImage = popupImageElement.querySelector('.popup__image');
         popupImage.src = item.link;
         popupImage.alt = item.name;
-        const popupCaption = popupImageElement.querySelector('.popup__caption');
         popupCaption.textContent = item.name;
 
         openModalWindow(popupImageElement);
@@ -113,10 +116,6 @@ initialCards.forEach(function (item) {
     const a = createElement(item);
     initialCardsElement.append(a);
 });
-
-//closeImagePopup
-popupImageCloseButtonElement.addEventListener('click', () => closeModalWindow(popupImageElement));
-
 
 //addPopup
 const addCard = function (item) {
