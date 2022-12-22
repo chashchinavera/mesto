@@ -41,12 +41,11 @@ popupAddOpenButtonElement.addEventListener('click', () => {
 })
 
 //openEditPopup
-function openEditPopup() {
+popupEditOpenButtonElement.addEventListener('click', () => {
     popupInputInfoName.value = profileName.textContent;
     popupInputInfoStatus.value = profileStatus.textContent;
     openModalWindow(popupEditElement);
-}
-popupEditOpenButtonElement.addEventListener('click', openEditPopup);
+})
 
 //closePopup
 function closeModalWindow(modalWindow) {
@@ -122,22 +121,17 @@ const addCard = function (item) {
     initialCardsElement.prepend(createElement(item));
 }
 
-const addPopup = function (evt) {
+formCreate.addEventListener('submit', (evt) => {
     evt.preventDefault();
     addCard({ name: popupInputInfoPlace.value, link: popupInputInfoImage.value });
     formCreate.reset();
     closeModalWindow(popupAddElement);
-}
-
-formCreate.addEventListener('submit', addPopup);
-
+})
 
 //submitPopup
-const submitPopup = function (evt) {
+formSubmit.addEventListener('submit', (evt) => {
     evt.preventDefault();
     profileName.textContent = popupInputInfoName.value;
     profileStatus.textContent = popupInputInfoStatus.value;
     closeModalWindow(popupEditElement);
-}
-
-formSubmit.addEventListener('submit', submitPopup);
+})
