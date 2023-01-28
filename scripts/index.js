@@ -1,3 +1,6 @@
+import FormValidator from "./FormValidator.js";
+import Card from "./Card.js";
+
 const popups = document.querySelectorAll('.popup');
 const popupEditElement = document.querySelector('.popup_type_profile');
 const popupAddElement = document.querySelector('.popup_type_card-add');
@@ -75,50 +78,10 @@ function closeByEscape(evt) {
 //cards
 const initialCardsElement = document.querySelector('.elements');
 
-function createElement(item) {
-    const card = cardTemplate.cloneNode(true);
-    const cardTitle = card.querySelector('.element__title');
-    cardTitle.textContent = item.name;
-    const cardImage = card.querySelector('.element__image');
-    cardImage.src = item.link;
-    cardImage.alt = item.name;
-
-    //LikeButton
-    const likeButton = card.querySelector('.element__like');
-    likeButton.addEventListener('click', function () {
-        likeButton.classList.toggle('element__like_active');
-    });
-
-    //DeleteButton
-    const deleteButton = card.querySelector('.element__delete');
-    deleteButton.addEventListener('click', function () {
-        const deleteElement = deleteButton.closest('.element').remove();
-    });
-
-    //ImagePopup
-    const popupImageOpenButtonElement = card.querySelector('.element__image');
-
-    const openImagePopup = function () {
-        popupImage.src = item.link;
-        popupImage.alt = item.name;
-        popupCaption.textContent = item.name;
-
-        openModalWindow(popupImageElement);
-    }
-
-    popupImageOpenButtonElement.addEventListener('click', openImagePopup);
-
-    return card;
-};
-
-initialCards.forEach(function (item) {
-    const a = createElement(item);
-    initialCardsElement.append(a);
-});
-
 //addPopup
 const addCard = function (item) {
-    initialCardsElement.prepend(createElement(item));
+    initialCardsElement.prepend(new Card(item));
+    return new Card;
 }
 
 formCreate.addEventListener('submit', (evt) => {
@@ -126,7 +89,7 @@ formCreate.addEventListener('submit', (evt) => {
     addCard({ name: popupInputInfoPlace.value, link: popupInputInfoImage.value });
     formCreate.reset();
     closeModalWindow(popupAddElement);
-})
+});
 
 //submitPopup
 formSubmit.addEventListener('submit', (evt) => {
@@ -134,4 +97,15 @@ formSubmit.addEventListener('submit', (evt) => {
     profileName.textContent = popupInputInfoName.value;
     profileStatus.textContent = popupInputInfoStatus.value;
     closeModalWindow(popupEditElement);
-})
+});
+
+const form = new FormValidator({
+    formSelector: '.form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_invalid',
+    inputErrorClass: 'popup__error',
+    errorClass: 'popup__error_visible'
+});
+
+form.enableValidation();

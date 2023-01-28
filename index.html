@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="pages/index.css">
     <title>Mesto</title>
+
+    <script type="module" src="./scripts/Renderable.js"></script>
+    <script type="module" src="./scripts/Section.js"></script>
+
+    <script type="module" src="./scripts/initialCards.js"></script>
+
+    <script type="module" src="./scripts/index.js"></script>
+
 </head>
 
 <body class="page">
@@ -28,6 +36,10 @@
     <footer class="footer page__footer">
         <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
+
+    <template id="elements">
+    </template>
+
     <template id="element">
         <article class="element">
             <button type="button" class="element__button"><img class="element__image"></button>
@@ -38,12 +50,14 @@
             </div>
         </article>
     </template>
+
+
     <div class="popup  popup_type_profile">
         <div class="popup__container">
             <button type="button" class="popup__close" aria-label="закрыть окно редактирования">
             </button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="form" id="submit" name="content" novalidate>
+            <form class="form" id="submit" name="user" novalidate>
                 <input type="text" id="info" name="name" class="popup__input popup__input_info_name" placeholder="Имя"
                     required minlength="2" maxlength="40">
                 <span class="popup__error" id="info-error"></span>
@@ -58,7 +72,7 @@
         <div class="popup__container">
             <button type="button" class="popup__close" aria-label="закрыть окно добавления"></button>
             <h2 class="popup__title">Новое место</h2>
-            <form class="form" id="create" name="content" novalidate>
+            <form class="form" id="create" name="newCard" novalidate>
                 <input type="text" id="place" name="place" class="popup__input popup__input_info_place"
                     placeholder="Название" required minlength="2" maxlength="40">
                 <span class="popup__error" id="place-error"></span>
@@ -76,9 +90,6 @@
             <p class="popup__caption"></p>
         </div>
     </div>
-    <script src="scripts/cards.js"></script>
-    <script src="scripts/index.js"></script>
-    <script src="scripts/validate.js"></script>
 </body>
 
 </html>
