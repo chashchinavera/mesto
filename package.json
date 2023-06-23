@@ -1,0 +1,36 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "**Описание проекта**\r Место это студенческий проект программы веб-разработчик. Его задача - отточить навык базовой функциональности JavaScript.",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chashchinavera/mesto.git"
+  },
+  "author": "chashchinavera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chashchinavera/mesto/issues"
+  },
+  "homepage": "https://github.com/chashchinavera/mesto#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "autoprefixer": "^10.4.13",
+    "core-js": "^3.28.0",
+    "css-loader": "^6.7.3",
+    "cssnano": "^5.1.15",
+    "gh-pages": "^5.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.2",
+    "postcss-loader": "^7.0.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  }
+}
